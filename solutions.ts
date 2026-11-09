@@ -59,3 +59,29 @@ console.log("ConcatenateArrays is =" , concatenateArrays(['a', 'b'], ['o', 'p', 
 console.log('number array- ', concatenateArrays([1, 2], [3, 4], [5]))
 
 
+
+
+interface Course {
+    title: string,
+    students: number,
+    isPublished: boolean,
+}
+
+
+const courses = [
+  { title: "TypeScript Mastery", students: 120, isPublished: true },
+  { title: "Draft Course", students: 200, isPublished: false },
+  { title: "Make Money Course", students: 158, isPublished: false },
+  { title: "Lilyfut Course", students: 70, isPublished: true },
+  { title: "Basic HTML", students: 45, isPublished: true },
+  { title: "Next.js Pro", students: 385, isPublished: true }
+];
+
+
+const getPopularCourses = (courses: Course[], minStudents: number): Course[] => {
+    return courses.filter(
+        course => course.isPublished === true && course.students >= minStudents
+    )
+}
+
+console.log('publish courses- ', getPopularCourses(courses, 300));
