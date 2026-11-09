@@ -27,3 +27,22 @@ const processInput = (input: string | number | boolean) : string | number => {
 console.log(processInput("Bangladesh  "))
 console.log(processInput(5))
 console.log(processInput(false))
+
+
+
+
+
+type Coordinate  = readonly [
+    latitude: number,
+    longitude: number,
+    locationName: string,
+]
+
+const formatCoordinate = (data: Coordinate) : string => {
+    return(
+        `Location: ${data[2]} (${data[0]}, ${data[1]})`
+    )
+}
+
+console.log(formatCoordinate([23.81, 90.41, "Dhaka"]))
+console.log(formatCoordinate([22.35, 91.78, "Chittagong"]))
