@@ -46,3 +46,16 @@ const formatCoordinate = (data: Coordinate) : string => {
 
 console.log(formatCoordinate([23.81, 90.41, "Dhaka"]))
 console.log(formatCoordinate([22.35, 91.78, "Chittagong"]))
+
+
+
+
+const concatenateArrays = <T>(...arrays: T[][]): T[] => {
+    return ([] as T[]).concat(...arrays);
+}
+
+console.log("ConcatenateArrays is =" , concatenateArrays(['a', 'b'], ['o', 'p', 'q', 'r'], ['L', 'M', 'N', 'X', 'z']))
+
+console.log('number array- ', concatenateArrays([1, 2], [3, 4], [5]))
+
+
