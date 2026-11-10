@@ -85,3 +85,33 @@ const getPopularCourses = (courses: Course[], minStudents: number): Course[] => 
 }
 
 console.log('publish courses- ', getPopularCourses(courses, 300));
+
+
+
+interface User {
+    id: number;
+    name: string;
+    role: string;
+}
+
+
+// Sample Input:
+const users = [
+  { id: 1, name: "Rakib", role: "Admin" },
+  { id: 2, name: "Sadia", role: "Editor" },
+  { id: 3, name: "Tariq", role: "Subscriber" }
+];
+
+
+const pluckValues = <T, K extends keyof T> (items: T[], key: K): T[K][] => {
+    const userKeyData: T[K][] = [];
+
+    for(const item of items) {
+        userKeyData.push(item[key]);
+    }
+
+    return userKeyData;
+}
+
+console.log('PluksValue- ', pluckValues(users, "role"))
+console.log('PluksValue id - ', pluckValues(users, "id"))
