@@ -1,3 +1,5 @@
+
+
 const multiplyValue = (value: number, multiplier: number = 2 ) => {
     if(multiplier === 0) {
         return 0;
@@ -154,3 +156,37 @@ const manager = new Manager("Alice", 50000, "Engineering");
 console.log(manager.getDetails());
 console.log(manager.getRoleInfo());
 
+
+
+
+const validateAgeAsync = (age: number): Promise<string> => {
+    const myPromise = new Promise<string>((resolve, reject) => {
+        if (age >= 18) {
+            setTimeout(() => {
+                resolve("Access Granted");
+            }, 1000);
+        } else {
+            reject(new Error("Access Denied: Must be 18 or older"));
+        }
+    });
+
+    return myPromise;
+};
+
+// Testing
+async function main() {
+    try {
+        const result = await validateAgeAsync(10);
+        return(result);
+    } catch (error) {
+        if(error instanceof Error){
+            return(error.message);
+        }
+    }
+}
+
+// console.log(main());
+
+main().then((result) => {
+    console.log(result)
+})
